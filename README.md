@@ -3,5 +3,4 @@ Basic knowledge of ActiveMQ and how to config, setup, and get it running with ex
 
 * Configuring Authentication
 
-Offical site of ActiveMQ
-https://activemq.apache.org
+[Offical site of ActiveMQ](https://activemq.apache.org)
