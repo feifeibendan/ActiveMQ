@@ -61,5 +61,35 @@ To add authentication to ActiveMQ server.
 
     ```
 
+## Config ActiveMQ jvm memory
+Increase the memory usage of ActiveMQ by open the file in bin/env
+    
+```
+locate "ACTIVEMQ_OPTS_MEMORY", original value is
+    ACTIVEMQ_OPTS_MEMORY="-Xms64M -Xmx1G"
+    change to whatever to make application work
+    M stand for MB, G stand for GB
+```
+
+## Config ActiveMQ concurrent connection
+By default, the concurrent connections is set to 1000, it can config to allow more or less of concurrent connection
+
+```
+In file conf/activemq.xml, locate
+<transportConnectors>
+    <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
+    <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+    ...
+</transportConnectors>
+
+change to
+
+<transportConnectors>
+    <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
+    <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=<any number of connection need>&amp;wireFormat.maxFrameSize=104857600"/>
+    ...
+</transportConnectors>
+```
+
 ## Credits
-[Offical site of ActiveMQ](https://activemq.apache.org)
+[Official site of ActiveMQ](https://activemq.apache.org)
